@@ -32,10 +32,11 @@ export const ButtonMain = styled.button`
     box-shadow: 0px 10px 20px rgba(220, 13, 17, 0.25);
     color: #FFFFFF;
     font-family: Poppins;
+    
     font-size: 18px;
     font-weight: 600;
     line-height: 27px;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
