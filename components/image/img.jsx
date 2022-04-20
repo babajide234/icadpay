@@ -27,7 +27,7 @@ export default function Img(props){
                 alt={props.alt}
                 width={'150px'}
                 height={'150px'}
-                bottom={`70%`}
+                bottom={`410px`}
                 left={`95%`}
             />
             <HeaderImage
