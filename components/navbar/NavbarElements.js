@@ -8,6 +8,9 @@ export const NavContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding:0px 80px;
+    position: fixed;
+    background: #FFFFFF;
+    z-index: 1000;
     /* border-bottom: 1px solid #ccc; */
 `
 export const Nav = styled.div`

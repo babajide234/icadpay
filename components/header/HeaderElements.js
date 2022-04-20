@@ -4,6 +4,7 @@ import styled  from 'styled-components';
 export const HeaderMain = styled.div`
     width: 100%;
     height: 100vh;
+    padding-top: 70px;
 
 `
 export const HeaderContainer = styled.div`

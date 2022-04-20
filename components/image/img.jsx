@@ -39,6 +39,7 @@ export default function Img(props){
                 bottom={`90px`}
                 left={`95%`}
             />
+            
         </ImageContainer>
     );
 }
