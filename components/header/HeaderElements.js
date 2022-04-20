@@ -3,8 +3,8 @@ import styled  from 'styled-components';
 
 export const HeaderMain = styled.div`
     width: 100%;
-    height: 100vh;
-    padding-top: 70px;
+    min-height: 100vh;
+    padding: 70px 0px;
 
 `
 export const HeaderContainer = styled.div`
@@ -33,5 +33,5 @@ export const HeaderParagraph = styled.p`
     line-height: 24px;
     text-align: left;
     color: #1D2646;
-    margin-bottom: 54px;
+    margin-bottom: 30px;
 `
