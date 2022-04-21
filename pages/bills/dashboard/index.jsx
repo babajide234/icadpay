@@ -1,9 +1,11 @@
 import { Billimg, DashMain, DashMainContent, DListimg } from "../../../components/bills/billsElements";
 import Sidebar from "../../../components/bills/Sidebar";
+import Modal from "../../../components/modal/modal";
 
 export default function Dashboard() {
     return (
         <DashMain>
+            <Modal show={false}/>
             <Sidebar/>
             <DashMainContent>
                 <div className="dashheader">
@@ -24,7 +26,7 @@ export default function Dashboard() {
                             <div className="price">
                                 <h2><span>NGN</span> 5,000.00</h2>
                             </div>
-                            <button></button>
+                            <button className="paybtn">Pay</button>
                         </div>
                     </div>
 

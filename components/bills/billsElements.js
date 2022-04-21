@@ -182,6 +182,7 @@ export const DashMain = styled.div`
     width: 100%;
     display: flex;
     overflow: hidden;
+    position: relative;
 `
 export const DashListContainer = styled.div`
     width: 100%;
@@ -433,15 +434,19 @@ export const DashMainContent = styled.div`
                         color: #1D2646;
                         margin: 0;
                     }
-                    Button{
-                        height: 50px;
-                        width: 100%;
-                        border-radius: 10px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        background: #DC0D11;
-                    }
+                }
+                .paybtn{
+                    height: 50px;
+                    width: 100%;
+                    border-radius: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: #DC0D11;
+                    border: none;
+                    outline: none;
+                    color: #FFFFFF;
+                    margin-top: 20px;
                 }
             }
         }
@@ -453,4 +458,81 @@ export const DashListimg = styled.img`
     height: 48px;
     border: 1px solid #E3E3E4;
     border-radius: 10px;
+`
+export const ModalContainer = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.1);
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    display: ${props=> props.show ? 'flex':'none'};
+`
+export const Modalbox = styled.div`
+    height: 481px;
+    width: 338px;
+    border-radius: 20px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+    background: #fff;
+    z-index: 2000;
+    display: flex;
+    padding: 40px 30px;
+    flex-flow: column;
+    align-items: center;
+    h2{
+        //styleName: Header 4;
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #2B2C3E;
+        margin: 16px 0;
+    }
+    p{
+        //styleName: body 3;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #2B2C3E;
+        margin: 16px 0;
+    }
+    button{
+        width: 100%;
+        height: 50px;
+
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        outline: none;
+        margin-bottom: 20px;
+        //styleName: Body 1 medium;
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+    .red{
+            color: #fff;
+            background: #DC0D11;
+        }
+        .blue{
+            color: #2C63EA;
+            background: #ECF1FF;
+
+        }
 `
