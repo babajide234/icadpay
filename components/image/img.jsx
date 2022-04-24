@@ -11,6 +11,10 @@ export default function Img(props){
                 height={'150px'}
                 bottom={`160px`}
                 left={`15px`}
+                mwidth={'80px'}
+                mheight={'80px'}
+                mbottom={`50px`}
+                mleft={`10px`}
             />
             <HeaderImage
                 src='/img/pic4.png'
@@ -20,6 +24,10 @@ export default function Img(props){
                 height={'400px'}
                 bottom={`100px`}
                 left={`38%`}
+                mwidth={'131px'}
+                mheight={'221px'}
+                mbottom={`-20px`}
+                mleft={`32%`}
             />
             <HeaderImage
                 src='/img/pic2.png'
@@ -29,6 +37,10 @@ export default function Img(props){
                 height={'150px'}
                 bottom={`410px`}
                 left={`95%`}
+                mwidth={'87px'}
+                mheight={'88px'}
+                mbottom={`180px`}
+                mleft={`80%`}
             />
             <HeaderImage
                 src='/img/pic3.png'
@@ -38,6 +50,10 @@ export default function Img(props){
                 height={'300px'}
                 bottom={`90px`}
                 left={`95%`}
+                mwidth={'111px'}
+                mheight={'168px'}
+                mbottom={`0px`}
+                mleft={`80%`}
             />
             
         </ImageContainer>

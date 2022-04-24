@@ -32,6 +32,10 @@ export const ButtonMain = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 480px) {
+        height: 55px;
+        width: 160px;
+    }
     &:hover{
         cursor: pointer;
         background: #B30020;
@@ -47,6 +51,14 @@ export const ButtonMain = styled.button`
         line-height: 27px;
         margin-right: 5px;
         transition:all ease-in-out .3s;
+        @media screen and (max-width: 480px) {
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
     }
 `
 export const ButtonSub = styled.button`
@@ -57,6 +69,9 @@ export const ButtonSub = styled.button`
     display: flex;
     align-items: center;
     background: transparent;
+    @media screen and (max-width: 480px) {
+        width: 160px;
+    }
     h3{
         font-family: Poppins;
         font-size: 18px;
@@ -65,6 +80,14 @@ export const ButtonSub = styled.button`
         margin-right: 5px;
         transition:all ease-in-out .3s;
         color: #DC0D11;
+        @media screen and (max-width: 480px) {
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
     }
     &:hover{
         cursor: pointer;

@@ -23,6 +23,10 @@ const Services = () => {
                             height={'380px'}
                             bottom={`0px`}
                             left={`0px`}
+                            mwidth={'166px'}
+                            mheight={'207px'}
+                            mbottom={`0px`}
+                            mleft={`0%`}
                         />
                         <Servicesimage
                             src='/img/pic8.png'
@@ -31,6 +35,10 @@ const Services = () => {
                             height={'380px'}
                             bottom={`30px`}
                             left={`300px`}
+                            mwidth={'150px'}
+                            mheight={'201px'}
+                            mbottom={`30px`}
+                            mleft={`58%`}
                         />
                         
                     </Servicesimg>

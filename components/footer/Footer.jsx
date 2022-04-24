@@ -22,7 +22,7 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="footer_contacts_social">
+                        <div className="footer_contacts_social footer_show">
                             <ul className="footer_contacts_social_list">
                                 <li className='footer_contacts_social_item'><a href="" className="footer_contacts_social_link"><Image src='/img/facebook.svg' alt='' width={20} height={20}/></a></li>
                                 <li className='footer_contacts_social_item'><a href="" className="footer_contacts_social_link"><Image src='/img/twitter.svg' alt='' width={20} height={20}/></a></li>
@@ -48,6 +48,14 @@ export default function Footer() {
                     </div>
                     
                     <div className="footer_copyright">
+                        <div className="footer_contacts_social footer_hidden">
+                            <ul className="footer_contacts_social_list">
+                                <li className='footer_contacts_social_item'><a href="" className="footer_contacts_social_link"><Image src='/img/facebook.svg' alt='' width={20} height={20}/></a></li>
+                                <li className='footer_contacts_social_item'><a href="" className="footer_contacts_social_link"><Image src='/img/twitter.svg' alt='' width={20} height={20}/></a></li>
+                                <li className='footer_contacts_social_item'><a href="" className="footer_contacts_social_link"><Image src='/img/instagram.svg' alt='' width={20} height={20}/></a></li>
+                                <li className='footer_contacts_social_item'><a href="" className="footer_contacts_social_link"><Image src='/img/linkden.svg' alt='' width={20} height={20}/></a></li>
+                            </ul>
+                        </div>
                         <div className="footer_copyright_rights">
                             <h4>2022  zuvy. All Rights Reserved</h4>
                         </div>

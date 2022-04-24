@@ -4,7 +4,10 @@ import Image from 'next/image';
 import MainButton from '../button/MainButton';
 export default function Features() {
     return (
-        <Section padding={'100px 0px'}>
+        <Section 
+            padding={'100px 0px'}
+            mpadding={'30px 0px'}
+        >
             <Container>
                 <SectionTitle color="#1D2646">
                     <h2>Features</h2>
@@ -76,9 +79,39 @@ export default function Features() {
                 <Column divide={2}>
                     <FeatureImg>
                         <Image src='/img/pic5.png' alt='' width={511} height={514}/>
-                        <Circle bg=' #DC0D11' width='90px' height='90px' top='210px' left='-40px'/>
-                        <Circle bg=' linear-gradient(167.96deg, #6C97FF 8.79%, #2C63EA 89.57%)' width='36px' height='36px' top='20px' left='380px'/>
-                        <Circle bg=' linear-gradient(167.96deg, #ECF1FF 8.79%, #F8E4FF 89.57%)' width='124px' height='124px' top='380px' left='250px'/>
+                        <Circle 
+                            bg=' #DC0D11' 
+                            width='90px' 
+                            height='90px' 
+                            top='210px' 
+                            left='-40px' 
+                            mwidth='53px' 
+                            mheight='53px' 
+                            mtop='45%' 
+                            mleft='-20px'
+                        />
+                        <Circle 
+                            bg=' linear-gradient(167.96deg, #6C97FF 8.79%, #2C63EA 89.57%)' 
+                            width='36px' 
+                            height='36px' 
+                            top='20px' 
+                            left='380px'
+                            mwidth='21px' 
+                            mheight='21px' 
+                            mtop='20px' 
+                            mleft='90%'
+                        />
+                        <Circle 
+                            bg=' linear-gradient(167.96deg, #ECF1FF 8.79%, #F8E4FF 89.57%)' 
+                            width='124px' 
+                            height='124px' 
+                            top='380px' 
+                            left='250px'
+                            mwidth='74px' 
+                            mheight='74px' 
+                            mtop='80%' 
+                            mleft='60%'
+                        />
                     </FeatureImg>
                 </Column>
             </Container>

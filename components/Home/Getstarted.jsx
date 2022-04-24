@@ -7,6 +7,7 @@ export default function Getstarted(){
         <Section
             bg={'#1D2646'}
             padding={'70px 0px 80px 0px'}
+            mpadding={'50px 0px 50px 0px'}
         >
             <Container>
                 <SectionTitle color="#ffffff">
