@@ -130,6 +130,11 @@ export const Cat = styled.div`
     justify-content: space-around;
     align-items: center;
     padding: 10px;
+    @media screen and (max-width: 480px) {
+        width: 80px;
+        height: 100px;
+    }
+
     h3{
         //styleName: body 2 ;
         font-family: Poppins;
@@ -139,12 +144,20 @@ export const Cat = styled.div`
         letter-spacing: 0em;
         text-align: center;
         text-transform: capitalize;
+        @media screen and (max-width: 480px) {
+            font-size: 10px;
+        }
     }
 
 `
 export const Catimg = styled.img`
 height: 70px;
 width: 70px;
+@media screen and (max-width: 480px) {
+    height: 40px;
+    width: 40px;
+
+}
 `
 export const Billimg = styled.img`
     width: ${props=>props.width};
