@@ -38,7 +38,7 @@ const Services = () => {
                             mwidth={'150px'}
                             mheight={'201px'}
                             mbottom={`30px`}
-                            mleft={`53%`}
+                            mleft={`55%`}
                         />
                         
                     </Servicesimg>
