@@ -10,6 +10,7 @@ export const BillheaderContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 480px) {}
     .billcontainer{
         text-align: center;
         h2{
@@ -21,6 +22,10 @@ export const BillheaderContainer = styled.div`
             letter-spacing: 0em;
             text-align: center;
             color: #1D2646;
+            @media screen and (max-width: 480px) {
+                font-size: 24px;
+                line-height: 28px;
+            }
         }
         p{
             //styleName: Body 1 ;
@@ -31,6 +36,10 @@ export const BillheaderContainer = styled.div`
             letter-spacing: 0em;
             text-align: center;
             color: #1D2646;
+            @media screen and (max-width: 480px) {
+                font-size: 14px;
+            }
+
         }
     }
 `
@@ -49,6 +58,10 @@ export const SearchbarContainer = styled.div`
     overflow: hidden;
     transform:translate(-50%,50%);
     box-shadow: 0px 5px 20px rgba(29, 38, 70, 0.1);
+    @media screen and (max-width: 480px) {
+        width: 80%;
+    }
+
 `
 export const Searchbarinput = styled.input`
     width: 95%;
@@ -97,6 +110,12 @@ export const PopularMainCat = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    @media screen and (max-width: 480px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+
 `
 export const Cat = styled.div`
     height: 139px;
@@ -133,6 +152,10 @@ export const Billimg = styled.img`
     position: absolute;
     top: ${props=>props.top};
     left: ${props=>props.left};
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
+
 `
 
 export const SidebarContainer = styled.div`
@@ -154,6 +177,10 @@ export const DashSearchContainer = styled.div`
     align-items: center;
     margin: 20px auto;
     overflow: hidden;
+    @media screen and (max-width: 480px) {
+        width: 80%;
+    }
+
 `
 export const DashSearchIcon = styled.img`
     width: 30px;
@@ -176,6 +203,9 @@ export const DashSearchInput = styled.input`
     text-align: left;
     color: #2B2C3E;
     padding-left: 20px;
+    @media screen and (max-width: 480px) {
+        width: 80%;
+    }
 `
 export const DashMain = styled.div`
     height: 100vh;

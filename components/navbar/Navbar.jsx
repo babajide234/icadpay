@@ -36,11 +36,15 @@ export default function Navbar(){
                         <GrFormClose/>
                     </button>
                     <div className="mobile_menu">
-                        <NavLogo src="/img/logo.png" alt=""/>
+                        <div className="">
+                            {/* <Link href='/bills'> */}
+                                <NavLogo src="/img/logo.png" alt="" />
+                            {/* </Link> */}
+                        </div>
                         <ul>
-                            <li className=""><Link href='/'>Pay Bills </Link></li>
-                            <li className=""><Link href='/'>For Businessess</Link></li>
-                            <li className=""><Link href='/'>Documentation </Link></li>
+                            <li className=""><Link href={`/bills`}>Pay Bills </Link></li>
+                            <li className=""><Link href={`/`}>For Businessess</Link></li>
+                            <li className=""><Link href={`/`}>Documentation </Link></li>
                         </ul>
                         <Button text={`Register`}/>
                     </div>
