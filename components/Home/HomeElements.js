@@ -222,6 +222,8 @@ export const FeatureImg = styled.div`
     position: relative;
     @media screen and (max-width: 480px) {
         order: 1;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 `
 export const Circle = styled.div`
@@ -532,18 +534,20 @@ export const FooterContainer = styled.div`
                         margin-bottom: 20px;
 
                     }
-                }
-                &_link{
-                    font-family: Poppins;
-                    font-size: 16px;
-                    font-weight: 600;
-                    line-height: 19px;
-                    letter-spacing: 0px;
-                    text-align: center;
-                    margin-right:28.0437px;
-                    color: #FFFFFF;
-                    @media screen and (max-width: 480px) {
-                        font-size: 14px;
+                
+                    a{
+                        font-family: Poppins;
+                        font-size: 16px;
+                        font-weight: 600;
+                        line-height: 19px;
+                        letter-spacing: 0px;
+                        text-align: center;
+                        margin-right:28.0437px;
+                        color: #FFFFFF;
+                        @media screen and (max-width: 480px) {
+                            color: #FFFFFF;
+                            font-size: 14px;
+                        }
                     }
                 }
             }

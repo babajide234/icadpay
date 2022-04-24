@@ -14,7 +14,7 @@ export default function Img(props){
                 mwidth={'80px'}
                 mheight={'80px'}
                 mbottom={`50px`}
-                mleft={`10px`}
+                mleft={`0px`}
             />
             <HeaderImage
                 src='/img/pic4.png'
@@ -27,7 +27,7 @@ export default function Img(props){
                 mwidth={'131px'}
                 mheight={'221px'}
                 mbottom={`-20px`}
-                mleft={`32%`}
+                mleft={`26%`}
             />
             <HeaderImage
                 src='/img/pic2.png'
@@ -40,7 +40,7 @@ export default function Img(props){
                 mwidth={'87px'}
                 mheight={'88px'}
                 mbottom={`180px`}
-                mleft={`80%`}
+                mleft={`70%`}
             />
             <HeaderImage
                 src='/img/pic3.png'
@@ -53,7 +53,7 @@ export default function Img(props){
                 mwidth={'111px'}
                 mheight={'168px'}
                 mbottom={`0px`}
-                mleft={`80%`}
+                mleft={`70%`}
             />
             
         </ImageContainer>

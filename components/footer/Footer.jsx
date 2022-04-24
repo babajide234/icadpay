@@ -3,6 +3,8 @@ import { Section, Container } from './../Layout/layoutElement';
 import Image from "next/image";
 import { ButtonMain } from '../button/buttonElements';
 import MainButton from '../button/MainButton';
+import Link from "next/link"
+
 export default function Footer() {
     return (
         <Section bg='#1D2646' padding='28px 0px'>
@@ -36,10 +38,9 @@ export default function Footer() {
                         <div className="footer_menu_nav">
                             <Image src='/img/logow.png' alt='' width={116} height={39} />
                             <ul className="footer_menu_nav_list">
-                                <li className="footer_menu_nav_item"><a href="" className="footer_menu_nav_link">About Zuvy</a></li>
-                                <li className="footer_menu_nav_item"><a href="" className="footer_menu_nav_link">How it works</a></li>
-                                <li className="footer_menu_nav_item"><a href="" className="footer_menu_nav_link">Features</a></li>
-                                <li className="footer_menu_nav_item"><a href="" className="footer_menu_nav_link">FAQs</a></li>
+                                <li className="footer_menu_nav_item"><Link href="/bills" className="footer_menu_nav_link">Pay Bills</Link></li>
+                                <li className="footer_menu_nav_item"><Link href="/" className="footer_menu_nav_link">For Businessess</Link></li>
+                                <li className="footer_menu_nav_item"><Link href="/" className="footer_menu_nav_link">Documentation</Link></li>
                             </ul>
                         </div>
                         <div className="footer_menu_btn">
