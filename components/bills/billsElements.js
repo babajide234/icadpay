@@ -176,11 +176,18 @@ height: calc(100vh - 80px);
 width: 30%;
 border: 1px solid rgba(116,116,120,.2);
 margin-top: 80px;
+@media screen and (max-width: 480px) {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    display: none;
+}
+
 
 `
 export const DashSearchContainer = styled.div`
-    height: 50px;
     width: 310px;
+    height: 50px;
     background: #F9F9F9;
     border: 1px solid rgba(43, 44, 62, 0.1);
     box-sizing: border-box;
@@ -188,13 +195,53 @@ export const DashSearchContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px auto;
+    margin: 20px auto 10px;
     overflow: hidden;
     @media screen and (max-width: 480px) {
         width: 80%;
     }
 
+    
+    `
+export const BackContainer = styled.div`
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding-left: 10px;
+    margin: 0 auto 10px;
+    span{
+        width: 33px;
+        height: 33px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        background:rgba(57,77,147,.2);
+        margin-right: 20px;
+        display: none;
+        @media screen and (max-width: 480px) {
+            display: flex;
+        }
+    }    
+    h2{
+        //styleName: Header 4;
+        font-family: Poppins;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin: 0;
+        @media screen and (max-width: 480px) {
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+    }
 `
+
 export const DashSearchIcon = styled.img`
     width: 30px;
     height: 30px;
@@ -226,6 +273,9 @@ export const DashMain = styled.div`
     display: flex;
     overflow: hidden;
     position: relative;
+    @media screen and (max-width: 480px) {
+        flex-flow: column;
+    }
 `
 export const DashListContainer = styled.div`
     width: 100%;
@@ -304,7 +354,13 @@ export const DashMainContent = styled.div`
     border-top: 1px solid rgba(116,116,120,.2);
     overflow: scroll;
     direction: rtl;
-
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0%;
+    }
     .dashheader{
         width: 100%;
         height: 150px;
@@ -313,7 +369,8 @@ export const DashMainContent = styled.div`
         display: flex;
         align-items: center;
         direction: ltr;
-
+        @media screen and (max-width: 480px) {
+        }
         h3{
             //styleName: Header 3;
             font-family: Poppins;
@@ -343,6 +400,12 @@ export const DashMainContent = styled.div`
         padding: 30px 100px;
         display: flex;
         justify-content: space-between;
+        @media screen and (max-width: 480px) {
+            flex-flow: column;
+            width: 90%;
+            margin: 0 auto;
+            padding: 0;
+        }
         h3{
             //styleName: Header 5;
             font-family: Poppins;
@@ -357,7 +420,11 @@ export const DashMainContent = styled.div`
             width: 60%;
             height: fit-content;
             padding-bottom: 100px;
-
+            @media screen and (max-width: 480px) {
+                width: 100%;
+                order: 1;
+                padding:0;
+            }
             .input_container{
                 border: 1px solid rgba(29, 38, 70, 0.1);
                 width: 100%;
@@ -367,6 +434,9 @@ export const DashMainContent = styled.div`
                 border-radius: 10px;
                 overflow: hidden;
                 margin: 20px 0;
+                @media screen and (max-width: 480px) {
+                
+                }
                 input{   
                     width: 95%;
                     height: 100%;
@@ -436,6 +506,10 @@ export const DashMainContent = styled.div`
         }
         &_right{
             width: 30%;
+            @media screen and (max-width: 480px) {
+                width: 100%;
+                order: 2;
+            }
             .dashpay{
                 height: 172px;
                 width: 100%;
@@ -444,6 +518,17 @@ export const DashMainContent = styled.div`
                 box-sizing: border-box;
                 margin-top: 50px;
                 padding: 20px;
+                @media screen and (max-width: 480px) {
+                    background: #F9F9F9;
+                    position: fixed;
+                    bottom: 0px;
+                    left: 0;
+                    border: none;
+                    border-radius: 0;
+                    padding: 31px;
+
+
+                }
                 h3{
                     //styleName: body 2 ;
                     font-family: Poppins;
@@ -456,6 +541,9 @@ export const DashMainContent = styled.div`
                     margin: 0;
                 }
                 .price{
+                    @media screen and (max-width: 480px) {
+                        
+                    }
                     span{
                         //styleName: Body 1 ;
                         font-family: Poppins;
@@ -464,7 +552,12 @@ export const DashMainContent = styled.div`
                         line-height: 24px;
                         letter-spacing: 0em;
                         text-align: left;
-
+                        @media screen and (max-width: 480px) {
+                            font-family: Poppins;
+                            font-size: 27px;
+                            font-weight: 600;
+                            line-height: 41px;
+                        }
                     }
                     h2{
                         //styleName: Header 3;
@@ -476,6 +569,14 @@ export const DashMainContent = styled.div`
                         text-align: left;
                         color: #1D2646;
                         margin: 0;
+                        @media screen and (max-width: 480px) {
+                            font-family: Poppins;
+                            font-size: 27px;
+                            font-weight: 600;
+                            line-height: 41px;
+                            letter-spacing: 0em;
+                            text-align: left;
+                        }
                     }
                 }
                 .paybtn{
