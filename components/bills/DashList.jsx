@@ -9,21 +9,27 @@ export default function DashList({datas,setdata,bill}) {
 
     const handleClick = (e)=>{
         const id = e.currentTarget.id;
-        if(Object.keys(bill).length == 0){
-            
-            console.log('DashList_____add',bill);
-            
-            datas.filter((item)=>{
-                if(item.billPaymentProductId === id){
-                    setdata(item);
-                    setactive(item.billPaymentProductId);
-                }
-            })
-        }else{
-            setactive('')
-            setdata([])
-            console.log('DashList_____remove',bill);
-        }
+        setactive('');
+        setdata([])
+
+        console.log('asnfjdncj', Object.keys(bill).length)
+
+        // if(Object.keys(bill).length === 0){
+        
+        console.log('DashList_____add',bill);
+        
+        datas.filter((item)=>{
+            if(item.billPaymentProductId === id){
+                setdata(item);
+                setactive(item.billPaymentProductId);
+            }
+        })
+
+        // }else{
+            // setactive('')
+            // setdata([])
+            // console.log('DashList_____remove',bill);
+        // }
         
         // console.log('DashList_____',bill)
         console.log('DashList_____id',bill);

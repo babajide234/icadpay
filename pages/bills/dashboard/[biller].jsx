@@ -4,6 +4,7 @@ import Sidebar from "../../../components/bills/Sidebar";
 import Modal from "../../../components/modal/modal";
 import { useRouter } from 'next/router'
 import axios from "axios";
+import Script from 'next/script'
 
 
 
@@ -37,16 +38,44 @@ export default function Dashboard({ bills,sidbar }) {
     const { biller } = router.query;
 
     const [selectedBiller,setselectedBiller]=useState([]);
+    const [amount,setamount]=useState('4000');
+    const [email,setemail]=useState('babajide234@gmail.com');
+    const [phone,setphone]=useState('+2348135198896');
+    const [firstname,setfirstname]=useState('babajide');
+    const [lastname,setlastname]=useState('tomoshegbo');
 
     
     const handleSelectBiller = (bill)=>{
         setselectedBiller(bill)
     }
+    
+    // console.log('biller',bills);
+    const handlepayment = async ()=>{
+        console.log('payment btn clicked');
 
-    console.log('biller',bills);
+        const payload = {
+            key: 'test_ZTM1N2RmNWQ2MzE5Mjc4MTkzY2UxODkxYmE3ZDRmYzhlMWFjYmI2NjhhMzNiNGVjZmIzZWU3MDkwNjk1MTkzOA', // this is a demo key.  
+            email: email, // customer email 
+            amount: amount, // amount to be processed
+            currency: "NGN", // currency
+            first_name: firstname,
+            last_name: lastname,
+            phone_number: phone, // customer's phone number (optional)
+            customerId: email,
+            ref: ` ${Math.floor((Math.random() * 1000000000) + 1)}`, // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            narration: 'something nice',
+            callback_url: window.location.href, // specified redirect URL (potional)
+            
+          }
+        const handler = IcadPay.setup(payload,(response)=>{
+          console.log(response);
+        })
+    }
 
     return (
         <DashMain>
+            <Script src="http://demo.icadpay.com/inline-pay.js" strategy="beforeInteractive" />
+
             <Modal show={false}/>
             <Sidebar data={bills} setBiller={handleSelectBiller} biller={selectedBiller}/>
             <DashMainContent>           
@@ -70,7 +99,7 @@ export default function Dashboard({ bills,sidbar }) {
                                     <div className="price">
                                         <h2><span>{selectedBiller.currency}</span> {selectedBiller.amount}</h2>
                                     </div>
-                                    <button className="paybtn">Pay</button>
+                                    <button className="paybtn" onClick={handlepayment}>Pay</button>
                                 </div>
                             </div>
 
@@ -81,6 +110,35 @@ export default function Dashboard({ bills,sidbar }) {
                                         <>
                                         {
                                             selectedBiller.metadata.customFields.map((opt)=>{
+                                                if(opt.type == 'multiselect'){
+                                                    return(
+                                                        <>            
+                                                        <div className="input_container">
+                                                            <select type={opt.type} placeholder={opt.display_name} required={opt.required} >
+                                                                <option value={''} selected>{opt.display_name}</option>
+                                                                {
+                                                                    opt.selectOptions.map((val,ii)=>{
+                                                                        return(
+                                                                            <>
+                                                                                <option key={ii} value={val.VALUE}>{val.DISPLAY_NAME}</option>
+                                                                            </>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                        </>
+                                                    )
+                                                }
+                                                if(opt.isAmountFixed){
+                                                    return(
+                                                        <>            
+                                                            <div className="input_container">
+                                                                <input type={opt.type} placeholder={opt.amount} required={opt.required} />
+                                                            </div>
+                                                        </>
+                                                    )    
+                                                }
                                                 return(
                                                     <>            
                                                     <div className="input_container">
@@ -105,12 +163,10 @@ export default function Dashboard({ bills,sidbar }) {
                                 </div>
 
                                 <div className="input_container">
-                                    <input type="text" placeholder="Enter Email Address " />
-                                    <span>₦</span>
+                                    <input type="text" placeholder="Enter Email Address " value={email} onChange={(e)=>setemail(e.target.value)}/>
                                 </div>
                                 <div className="input_container">
-                                    <span>₦</span>
-                                    <input type="text" placeholder="Phone Number" />
+                                    <input type="text" placeholder="Phone Number" value={phone} onChange={(e)=>setphone(e.target.value)}/>
                                 </div>
 
                             </div>
