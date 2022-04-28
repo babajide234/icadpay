@@ -1,26 +1,65 @@
-import { DashListContainer, DashListimg, DashListsContent } from './billsElements';
-export default function DashList() {
+import { DashListContainer, DashListimg, DashListsContent,DashListCheck } from './billsElements';
+import react, { useEffect, useState } from 'react';
+
+export default function DashList({datas,setdata,bill}) {
+    
+    console.log('DashList_____',datas)
+    
+    const [active, setactive] = useState();
+
+    const handleClick = (e)=>{
+        const id = e.currentTarget.id;
+        if(Object.keys(bill).length == 0){
+            
+            console.log('DashList_____add',bill);
+            
+            datas.filter((item)=>{
+                if(item.billPaymentProductId === id){
+                    setdata(item);
+                    setactive(item.billPaymentProductId);
+                }
+            })
+        }else{
+            setactive('')
+            setdata([])
+            console.log('DashList_____remove',bill);
+        }
+        
+        // console.log('DashList_____',bill)
+        console.log('DashList_____id',bill);
+        
+    }   
     return (
         <DashListContainer>
             <DashListsContent>
-                <li className="">
-                    <DashListimg
-                        src='/img/dstvrec1.svg'
-                    />
-                    <div className="listnames">
-                        <h4 className="">DSTV box office </h4>
-                        <h5>DSTV Kenya</h5>
-                    </div>
-                </li>
-                <li className="">
-                    <DashListimg
-                        src='/img/dstvrec2.svg'
-                    />
-                    <div className="listnames">
-                        <h4 className="">DSTV box office </h4>
-                        <h5>DSTV Kenya</h5>
-                    </div>
-                </li>
+                {
+                            datas.map((item,i)=>{
+                                return(
+                                        <>
+                                            <li className={active == item.billPaymentProductId ? 'active':''} id={item.billPaymentProductId} onClick={handleClick} key={i}>
+                                                <DashListimg
+                                                    src='/img/dstvrec1.svg'
+                                                />
+                                                <div className="listnames">
+                                                    <h4 className="">{item.billPaymentProductName}</h4>
+                                                    {/* <h5>DSTV Kenya</h5> */}
+                                                </div>
+                                                {/* {
+                                                    active && (
+                                                        <>
+                                                        
+                                                         <DashListCheck src='/img/Check_.svg'/>
+                                                        </>
+                                                    )
+                                                } */}
+                                            </li>
+                                        </>
+                                    )
+                                })
+                        
+                    //  </>
+                    // )
+                }
             </DashListsContent>
         </DashListContainer>
     );

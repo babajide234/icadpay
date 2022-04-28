@@ -81,7 +81,24 @@ export const SearchbarIcon = styled.img`
     
 `
 export const Searchbardropdown = styled.div`
-    
+    width: 635px;
+    min-height: 20vh;
+    background: #ffffff;
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,.3);
+    position: absolute;
+    bottom: -180px;
+    border-radius:15px;
+    padding: 16px 30px;
+    display: ${props=> props.show ? 'block':'none'};
+    ul{
+        padding: 0;
+        li{
+            border-bottom:1px solid rgba(0,0,0,.1);
+            padding:10px 0px;
+
+            a{}
+        }
+    }
 `
 export const PopularContainer = styled.div`
     min-height: 544px;
@@ -176,11 +193,12 @@ height: calc(100vh - 80px);
 width: 30%;
 border: 1px solid rgba(116,116,120,.2);
 margin-top: 80px;
+/* overflow: scroll; */
 @media screen and (max-width: 480px) {
     width: 100%;
     height: 100vh;
     border: none;
-    display: none;
+    display: ${props=> props.sidebar ? 'none':''};
 }
 
 
@@ -279,9 +297,11 @@ export const DashMain = styled.div`
 `
 export const DashListContainer = styled.div`
     width: 100%;
+    height: 100%;
     display: flex;
     flex-flow: column;
     border-top: 1px solid rgba(116,116,120,.2);
+    overflow: scroll;
 `
 export const DashListsContent = styled.ul`
 width: 310px;
@@ -289,6 +309,12 @@ margin: 0 auto;
 display: flex;
 padding: 20px 0;
 flex-flow: column;
+.active{
+        cursor: pointer;
+        background: #ECF1FF;
+        border: 1px solid #2C63EA;
+
+}
 li{
     width: 100%;
     height: 90px;
@@ -307,6 +333,7 @@ li{
         background: #ECF1FF;
         border: 1px solid #2C63EA;
     }
+
     .listnames{
         width: 80%;
         display: flex;
@@ -336,7 +363,7 @@ li{
     }
 }
 `
-export const DashList = styled.li`
+export const DashListcheck = styled.img`
     
 `
 export const DListimg = styled.img`
@@ -359,7 +386,7 @@ export const DashMainContent = styled.div`
         height: 100vh;
         position: absolute;
         top: 0;
-        right: 0%;
+        right: ${props=> props.detail ? '0%':'-100%'};
     }
     .dashheader{
         width: 100%;

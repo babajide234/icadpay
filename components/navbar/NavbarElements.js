@@ -56,9 +56,14 @@ export const ButtonContainer = styled.div`
     @media screen and (max-width: 480px) {
         display:none;
     }
-`
+    `
 export const MobileMenu = styled.div`
     /* width: 30%; */
+    display: none;
+    @media screen and (max-width: 480px) {
+        display: block;
+    }
+
     button{
         background: none;
         border: none;

@@ -1,11 +1,18 @@
 import { Billimg, DashMain, DashMainContent, DListimg } from "../../../components/bills/billsElements";
 import Sidebar from "../../../components/bills/Sidebar";
+import Modal from "../../../components/modal/modal";
+import { useRouter } from 'next/router'
 
-export default function Payment() {
+export default function Dashboard() {
+    const router = useRouter()
+    const { biller } = router.query
+
     return (
         <DashMain>
+            <Modal show={false}/>
             <Sidebar/>
             <DashMainContent>
+                
                 <div className="dashheader">
                     <div className="imgcontainer">
                         <DListimg
@@ -24,7 +31,7 @@ export default function Payment() {
                             <div className="price">
                                 <h2><span>NGN</span> 5,000.00</h2>
                             </div>
-                            <button></button>
+                            <button className="paybtn">Pay</button>
                         </div>
                     </div>
 

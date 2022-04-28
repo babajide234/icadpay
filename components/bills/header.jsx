@@ -1,13 +1,15 @@
-import { BillheaderContainer, Billimg } from './billsElements';
+import { BillheaderContainer, Billimg,SearchResult } from './billsElements';
 import SearchBar from './searchbar';
-export default function Billsheader(){
+
+export default function Billsheader({data}){
     return (
         <BillheaderContainer>
             <div className="billcontainer">
                 <h2 className="">Make Bill Payments</h2>
                 <p>Enter the type of bill you would like to pay </p>
             </div>
-            <SearchBar/>
+            <SearchBar props={data}/>
+            
             <Billimg 
                 src='/img/person.svg'
                 width='120px'
