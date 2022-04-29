@@ -10,7 +10,7 @@ export const NavContainer = styled.div`
     padding:0px 80px;
     position: fixed;
     background: #FFFFFF;
-    z-index: 1000;
+    z-index: 900;
     @media screen and (max-width: 480px) {
         height: 99px;
         padding: 0px 32px;
