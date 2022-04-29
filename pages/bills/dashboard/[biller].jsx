@@ -92,7 +92,7 @@ export default function Dashboard({ bills,sidbar }) {
     return (
         <DashMain>
             <Script 
-                src="https://demo.icadpay.com/inline-pay.js" 
+                src="demo.icadpay.com/inline-pay.js" 
                 strategy="beforeInteractive" 
                 onLoad={() =>
                     console.log(`script loaded correctly, window.FB has been populated`)
