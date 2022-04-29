@@ -25,13 +25,6 @@ export default function DashList({datas,setdata,bill}) {
             }
         })
 
-        // }else{
-            // setactive('')
-            // setdata([])
-            // console.log('DashList_____remove',bill);
-        // }
-        
-        // console.log('DashList_____',bill)
         console.log('DashList_____id',bill);
         
     }   
@@ -39,8 +32,8 @@ export default function DashList({datas,setdata,bill}) {
         <DashListContainer>
             <DashListsContent>
                 {
-                            datas.map((item,i)=>{
-                                return(
+                        datas.filter(Boolean).map((item,i)=>{
+                            return(
                                         <>
                                             <li className={active == item.billPaymentProductId ? 'active':''} id={item.billPaymentProductId} onClick={handleClick} key={i}>
                                                 <DashListimg
@@ -54,17 +47,15 @@ export default function DashList({datas,setdata,bill}) {
                                                     active && (
                                                         <>
                                                         
-                                                         <DashListCheck src='/img/Check_.svg'/>
+                                                        <DashListCheck src='/img/Check_.svg'/>
                                                         </>
-                                                    )
-                                                } */}
+                                                        )
+                                                    } */}
                                             </li>
                                         </>
                                     )
                                 })
-                        
-                    //  </>
-                    // )
+                    
                 }
             </DashListsContent>
         </DashListContainer>
