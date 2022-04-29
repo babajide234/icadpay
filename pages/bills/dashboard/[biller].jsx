@@ -35,16 +35,30 @@ export async function getStaticPaths(context) {
 
 export default function Dashboard({ bills,sidbar }) {
     const router = useRouter()
-    const { biller } = router.query;
+    const { biller,status,amount,ref } = router.query;
 
     const [selectedBiller,setselectedBiller]=useState([]);
-    const [amount,setamount]=useState('4000');
+    const [amount_,setamount]=useState('4000');
     const [email,setemail]=useState('babajide234@gmail.com');
     const [phone,setphone]=useState('+2348135198896');
     const [firstname,setfirstname]=useState('babajide');
     const [lastname,setlastname]=useState('tomoshegbo');
+    const [modal,setmodal]=useState(false);
 
-    
+     useEffect(()=>{
+        if(status == 'SUCCESS'){
+            console.log('status: ',status);
+            setmodal(true)
+        }
+     },[status])   
+
+     useEffect(()=>{
+        if(Object.keys(selectedBiller).length !== 0 ){
+            
+            setamount(selectedBiller.amount)
+        }
+     },[selectedBiller])   
+
     const handleSelectBiller = (bill)=>{
         setselectedBiller(bill)
     }
@@ -56,7 +70,7 @@ export default function Dashboard({ bills,sidbar }) {
         const payload = {
             key: 'test_ZTM1N2RmNWQ2MzE5Mjc4MTkzY2UxODkxYmE3ZDRmYzhlMWFjYmI2NjhhMzNiNGVjZmIzZWU3MDkwNjk1MTkzOA', // this is a demo key.  
             email: email, // customer email 
-            amount: amount, // amount to be processed
+            amount: amount_, // amount to be processed
             currency: "NGN", // currency
             first_name: firstname,
             last_name: lastname,
@@ -66,17 +80,20 @@ export default function Dashboard({ bills,sidbar }) {
             narration: 'something nice',
             callback_url: window.location.href, // specified redirect URL (potional)
             
-          }
-        const handler = IcadPay.setup(payload,(response)=>{
+        }
+
+        IcadPay.setup(payload,(response)=>{
           console.log(response);
         })
     }
-
+    const handlemodal= ()=>{
+        setmodal(false)
+    }
     return (
         <DashMain>
             <Script src="http://demo.icadpay.com/inline-pay.js" strategy="beforeInteractive" />
 
-            <Modal show={false}/>
+            <Modal show={modal} close={handlemodal} amount={amount} TxnRef={ref} name={selectedBiller.billPaymentProductName}/>
             <Sidebar data={bills} setBiller={handleSelectBiller} biller={selectedBiller}/>
             <DashMainContent>           
                 <div className="dashheader">
@@ -93,61 +110,63 @@ export default function Dashboard({ bills,sidbar }) {
                     { Object.keys(selectedBiller).length !== 0 ? (
                         <>
                         <div className="dashcontent">
-                            <div className="dashcontent_right">
-                                <div className="dashpay">
-                                    <h3 className="">Total price </h3>
-                                    <div className="price">
-                                        <h2><span>{selectedBiller.currency}</span> {selectedBiller.amount}</h2>
-                                    </div>
-                                    <button className="paybtn" onClick={handlepayment}>Pay</button>
-                                </div>
-                            </div>
-
-                            <div className="dashcontent_left">
+                        <div className="dashcontent_left">
                                 <h3 className="">Fill in the details to pay this bill</h3>
+                                {
+                                    Object.keys(selectedBiller).length !== 0  && (
+                                        <>
+                                            {
+                                                selectedBiller.isAmountFixed && (
+                                                    <>   
+                                                        <div className="input_div">
+
+                                                            <label htmlFor="">Amount</label>  
+                                                            <div className="input_container">
+                                                                <input type={'numeric'} value={selectedBiller.amount} placeholder='Amount' onChange={(e)=> setamount(e.target.value)}  required={selectedBiller.required} />
+                                                            </div>
+                                                        </div>
+                                                    </>
+                                                )
+                                            }
+                                        </>
+                                    )
+                                    
+                                }
                                 {
                                     Object.keys(selectedBiller).length !== 0  ? (
                                         <>
-                                        {
-                                            selectedBiller.metadata.customFields.map((opt)=>{
-                                                if(opt.type == 'multiselect'){
+                                            {
+                                                selectedBiller.metadata.customFields.map((opt)=>{
+                                                    if(opt.type == 'multiselect'){
+                                                        return(
+                                                            <>            
+                                                            <div className="input_container">
+                                                                <select type={opt.type} placeholder={opt.display_name} required={opt.required} >
+                                                                    <option value={''} default>{opt.display_name}</option>
+                                                                    {
+                                                                        opt.selectOptions.map((val,ii)=>{
+                                                                            return(
+                                                                                <>
+                                                                                    <option key={ii} value={val.VALUE}>{val.DISPLAY_NAME}</option>
+                                                                                </>
+                                                                            )
+                                                                        })
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                            </>
+                                                        )
+                                                    }
+                                                    
                                                     return(
                                                         <>            
                                                         <div className="input_container">
-                                                            <select type={opt.type} placeholder={opt.display_name} required={opt.required} >
-                                                                <option value={''} selected>{opt.display_name}</option>
-                                                                {
-                                                                    opt.selectOptions.map((val,ii)=>{
-                                                                        return(
-                                                                            <>
-                                                                                <option key={ii} value={val.VALUE}>{val.DISPLAY_NAME}</option>
-                                                                            </>
-                                                                        )
-                                                                    })
-                                                                }
-                                                            </select>
+                                                            <input type={opt.type} placeholder={opt.display_name} required={opt.required} />
                                                         </div>
                                                         </>
                                                     )
-                                                }
-                                                if(opt.isAmountFixed){
-                                                    return(
-                                                        <>            
-                                                            <div className="input_container">
-                                                                <input type={opt.type} placeholder={opt.amount} required={opt.required} />
-                                                            </div>
-                                                        </>
-                                                    )    
-                                                }
-                                                return(
-                                                    <>            
-                                                    <div className="input_container">
-                                                        <input type={opt.type} placeholder={opt.display_name} required={opt.required} />
-                                                    </div>
-                                                    </>
-                                                )
-                                            })
-                                        }
+                                                })
+                                            }
                                         </>
                                     ):(
                                         <>
@@ -170,6 +189,17 @@ export default function Dashboard({ bills,sidbar }) {
                                 </div>
 
                             </div>
+                            <div className="dashcontent_right">
+                                <div className="dashpay">
+                                    <h3 className="">Total price </h3>
+                                    <div className="price">
+                                        <h2><span>{selectedBiller.currency}</span> {amount_}</h2>
+                                    </div>
+                                    <button className="paybtn" onClick={handlepayment}>Pay</button>
+                                </div>
+                            </div>
+
+                            
                         </div>
                         </>
                         ):(

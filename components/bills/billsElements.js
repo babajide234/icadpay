@@ -380,7 +380,7 @@ export const DashMainContent = styled.div`
     margin-top: 80px;
     border-top: 1px solid rgba(116,116,120,.2);
     overflow: scroll;
-    direction: rtl;
+    /* direction: rtl; */
     @media screen and (max-width: 480px) {
         width: 100%;
         height: 100vh;
@@ -503,6 +503,17 @@ export const DashMainContent = styled.div`
                     letter-spacing: 0em;
                     text-align: left;
                     color: #2B2C3E;
+                }
+            }
+            .input_div{
+                label{
+                    font-size: 13px;
+                    margin:0;
+                    margin-left:5px ;
+                    font-weight: 700;
+                }
+                .input_container{
+                    margin-top: 2px !important;
                 }
             }
             .subtext{
