@@ -128,7 +128,7 @@ export default function Dashboard({ bills,sidbar }) {
 
                                                             <label htmlFor="">Amount</label>  
                                                             <div className="input_container">
-                                                                <input type={'numeric'} value={selectedBiller.amount} placeholder='Amount' onChange={(e)=> setamount(e.target.value)}  required={selectedBiller.required} />
+                                                                <input type={'numeric'} value={amount_} placeholder='Amount' onChange={(e)=> setamount(e.target.value)}  required={selectedBiller.required} />
                                                             </div>
                                                         </div>
                                                     </>
