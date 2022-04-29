@@ -91,7 +91,13 @@ export default function Dashboard({ bills,sidbar }) {
     }
     return (
         <DashMain>
-            <Script src="http://demo.icadpay.com/inline-pay.js" strategy="beforeInteractive" />
+            <Script 
+                src="http://demo.icadpay.com/inline-pay.js" 
+                strategy="beforeInteractive" 
+                onLoad={() =>
+                    console.log(`script loaded correctly, window.FB has been populated`)
+                }
+            />
 
             <Modal show={modal} close={handlemodal} amount={amount} TxnRef={ref} name={selectedBiller.billPaymentProductName}/>
             <Sidebar data={bills} setBiller={handleSelectBiller} biller={selectedBiller}/>
