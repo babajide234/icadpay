@@ -79,12 +79,25 @@ export default function Dashboard({ bills,sidbar }) {
             ref: ` ${Math.floor((Math.random() * 1000000000) + 1)}`, // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
             narration: 'something nice',
             callback_url: window.location.href, // specified redirect URL (potional)
-            
+            callback: (response) => {
+                console.log(response);
+            },
+            onSuccess: (response) => {
+              console.log(response);
+            },
+            onError: (response) => {
+              console.log(response);
+            },
+            onClose: () => {
+              console.log('window closed');
+              // alert('window closed');
+            }
         }
 
-        IcadPay.setup(payload,(response)=>{
-          console.log(response);
-        })
+        IcadPay.setup(payload);
+
+        
+
     }
     const handlemodal= ()=>{
         setmodal(false)
