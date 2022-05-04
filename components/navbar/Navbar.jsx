@@ -2,6 +2,7 @@ import react, {useState} from "react";
 import { Menu, MenuItem, NavContainer, NavLogo , ButtonContainer, Nav, MobileMenu} from "./NavbarElements"
 import Link from "next/link"
 import Button from "../button/button"
+import { useRouter } from 'next/router';
 
 import { FiMenu } from "react-icons/fi";
 import { GrFormClose } from "react-icons/gr";
@@ -14,10 +15,17 @@ export default function Navbar(){
         setopen(!open)
         console.log('menu: ',open);
     }
+    const router = useRouter();
+
+    const hadleregister = ()=>{
+        router.push('https://icadpay.com/user/register')
+    }
     return(
         <NavContainer>
             <Nav>
-                <NavLogo src="/img/logo.png" alt=""/>
+                <Link href='/' passHref>
+                    <NavLogo src="/img/logo.png" alt=""/>
+                </Link>
                 <Menu>
                     <MenuItem><Link href={`/bills`}>Pay bills</Link></MenuItem>
                     <MenuItem><Link href={`/`}>For businesses </Link></MenuItem>
@@ -25,7 +33,7 @@ export default function Navbar(){
                 </Menu>
             </Nav>
             <ButtonContainer>
-                <Button text={`Register`}/>
+                <Button text={`Register`} click={hadleregister}/>
             </ButtonContainer>
             <MobileMenu open={open}>
                 <button className="menubtn" onClick={toggleMenu}>

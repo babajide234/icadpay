@@ -5,9 +5,8 @@ import DashSearch from './Dashsearch';
 
 export default function Sidebar({data,setBiller,biller}) {
     
-    console.log('sidebar__',data);
+    // console.log('sidebar__',data);
     
-
     return (
         <SidebarContainer>
             <DashSearch/>

@@ -3,7 +3,7 @@ import react, { useEffect, useState } from 'react';
 
 export default function DashList({datas,setdata,bill}) {
     
-    console.log('DashList_____',datas)
+    // console.log('DashList_____',datas)
     
     const [active, setactive] = useState();
 
@@ -12,11 +12,11 @@ export default function DashList({datas,setdata,bill}) {
         setactive('');
         setdata([])
 
-        console.log('asnfjdncj', Object.keys(bill).length)
+        // console.log('asnfjdncj', Object.keys(bill).length)
 
         // if(Object.keys(bill).length === 0){
         
-        console.log('DashList_____add',bill);
+        // console.log('DashList_____add',bill);
         
         datas.filter((item)=>{
             if(item.billPaymentProductId === id){
@@ -25,7 +25,7 @@ export default function DashList({datas,setdata,bill}) {
             }
         })
 
-        console.log('DashList_____id',bill);
+        // console.log('DashList_____id',bill);
         
     }   
     return (

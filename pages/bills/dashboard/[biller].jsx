@@ -39,28 +39,46 @@ export default function Dashboard({ bills,sidbar }) {
 
     const [selectedBiller,setselectedBiller]=useState([]);
     const [amount_,setamount]=useState('4000');
-    const [email,setemail]=useState('babajide234@gmail.com');
-    const [phone,setphone]=useState('+2348135198896');
+    const [email,setemail]=useState('');
+    const [phone,setphone]=useState('');
     const [firstname,setfirstname]=useState('babajide');
     const [lastname,setlastname]=useState('tomoshegbo');
     const [modal,setmodal]=useState(false);
+    const [fixed,setfixed]=useState(false);
+    const [active,setactive]=useState(false);
 
      useEffect(()=>{
         if(status == 'SUCCESS'){
             console.log('status: ',status);
             setmodal(true)
         }
-     },[status])   
+    },[status])   
+    
+    useEffect(()=>{
+        if(email.length < 3 || phone.length <= 10){
+            setactive(false)
+            console.log('active: ',active);
+        }else{
+            setactive(true)
+        }
+     },[email,phone,active])   
 
      useEffect(()=>{
         if(Object.keys(selectedBiller).length !== 0 ){
             
             setamount(selectedBiller.amount)
+
+            if(selectedBiller.isAmountFixed == "true"){
+                setfixed(true)
+            }else{
+                setfixed(false)
+            }
         }
      },[selectedBiller])   
 
     const handleSelectBiller = (bill)=>{
         setselectedBiller(bill)
+        console.log('slected bill',bill);
     }
     
     // console.log('biller',bills);
@@ -95,12 +113,17 @@ export default function Dashboard({ bills,sidbar }) {
         }
 
         IcadPay.setup(payload);
-
         
-
     }
+
     const handlemodal= ()=>{
         setmodal(false)
+    }
+    const handleEmail= (e)=>{
+        setemail(e.target.value)
+    }
+    const handlephone= (e)=>{
+        setphone(e.target.value)
     }
     return (
         <DashMain>
@@ -140,7 +163,7 @@ export default function Dashboard({ bills,sidbar }) {
                                                         <div className="input_div">
 
                                                             <label htmlFor="">Amount</label>  
-                                                            <div className="input_container">
+                                                            <div className={fixed === true ? 'input_container disabled':'input_container'}>
                                                                 <input type={'numeric'} value={amount_} placeholder='Amount' onChange={(e)=> setamount(e.target.value)}  required={selectedBiller.required} />
                                                             </div>
                                                         </div>
@@ -201,10 +224,10 @@ export default function Dashboard({ bills,sidbar }) {
                                 </div>
 
                                 <div className="input_container">
-                                    <input type="text" placeholder="Enter Email Address " value={email} onChange={(e)=>setemail(e.target.value)}/>
+                                    <input type="email" value={email} onChange={handleEmail} placeholder="Enter Email Address xxx@mail.com "/>
                                 </div>
                                 <div className="input_container">
-                                    <input type="text" placeholder="Phone Number" value={phone} onChange={(e)=>setphone(e.target.value)}/>
+                                    <input type="tel" value={phone} onChange={handlephone} placeholder="Phone Number +234xxxxxxxxxxx"/>
                                 </div>
 
                             </div>
@@ -214,7 +237,7 @@ export default function Dashboard({ bills,sidbar }) {
                                     <div className="price">
                                         <h2><span>{selectedBiller.currency}</span> {amount_}</h2>
                                     </div>
-                                    <button className="paybtn" onClick={handlepayment}>Pay</button>
+                                    <button className={ active ? 'paybtn':'paybtn_not'} onClick={handlepayment}>Pay</button>
                                 </div>
                             </div>
 

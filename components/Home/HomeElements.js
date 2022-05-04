@@ -392,7 +392,7 @@ export const FooterContainer = styled.div`
                 flex-flow: column;
             }
             &_contact{
-                width: 50%;
+                width: 60%;
                 @media screen and (max-width: 480px) {
                     width: 100%;
                     display: flex;
@@ -403,16 +403,18 @@ export const FooterContainer = styled.div`
                 display: flex;
                 justify-content: end;
                 align-items: center;
-                width: 50%;
+                width: 40%;
+                padding-right: 20px;
                 @media screen and (max-width: 480px) {
                     width: 100%;
                     justify-content: start;
                 }
                 &_list{
                     display: flex;
-                    width: 50%;
+                    width: 60%;
                     justify-content: space-between;
                     align-items: center;
+                    padding: 0;
                     @media screen and (max-width: 480px) {
                         width: 100%;
                         justify-content: start;

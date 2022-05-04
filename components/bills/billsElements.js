@@ -452,6 +452,14 @@ export const DashMainContent = styled.div`
                 order: 1;
                 padding:0;
             }
+            .disabled{
+                background-color:#ccc !important ;
+                pointer-events: none;
+                input{
+                    pointer-events: none;
+                    background-color:#ccc !important ;
+                }
+            }
             .input_container{
                 border: 1px solid rgba(29, 38, 70, 0.1);
                 width: 100%;
@@ -504,6 +512,7 @@ export const DashMainContent = styled.div`
                     text-align: left;
                     color: #2B2C3E;
                 }
+
             }
             .input_div{
                 label{
@@ -516,6 +525,7 @@ export const DashMainContent = styled.div`
                     margin-top: 2px !important;
                 }
             }
+            
             .subtext{
                 display: flex;
                 flex-flow: column;
@@ -629,7 +639,29 @@ export const DashMainContent = styled.div`
                     outline: none;
                     color: #FFFFFF;
                     margin-top: 20px;
+                    
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
+                .paybtn_not{
+                        background-color: #ccc;
+                        color:#1D2646;
+                        height: 50px;
+                        width: 100%;
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: none;
+                        outline: none;
+                        color: #FFFFFF;
+                        margin-top: 20px;
+                        pointer-events: none;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
             }
         }
 

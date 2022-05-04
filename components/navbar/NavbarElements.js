@@ -26,6 +26,9 @@ export const NavLogo = styled.img`
     height: 39px;
     width: 116px;
     margin-right: 150px;
+    &:hover{
+        cursor: pointer;
+    }
 `
 export const Menu = styled.ul`
     display:flex;

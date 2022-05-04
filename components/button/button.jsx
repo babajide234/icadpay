@@ -1,8 +1,9 @@
 import { ButtonDefault } from "./buttonElements";
 
 export default function Button(props) {
+    
     return (
-        <ButtonDefault>
+        <ButtonDefault onClick={props.click}>
             {props.text}
         </ButtonDefault>
     );
