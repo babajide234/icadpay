@@ -125,8 +125,14 @@ export const PopularMain = styled.div`
 `
 export const PopularMainCat = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    a{
+        margin-right: 30px;
+        &:last-of-type{
+            margin-right: 0px;
+        }
+    }
     @media screen and (max-width: 480px) {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -136,7 +142,7 @@ export const PopularMainCat = styled.div`
 `
 export const Cat = styled.div`
     height: 139px;
-    width: 100px;
+    min-width: 100px;
     border-radius: 5px;
     background: #FFFFFF;
     border: 1px solid #E7E8E5;
@@ -146,7 +152,7 @@ export const Cat = styled.div`
     flex-flow: column;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     @media screen and (max-width: 480px) {
         width: 80px;
         height: 100px;
@@ -170,6 +176,7 @@ export const Cat = styled.div`
 export const Catimg = styled.img`
 height: 70px;
 width: 70px;
+border-radius: 50%;
 @media screen and (max-width: 480px) {
     height: 40px;
     width: 40px;

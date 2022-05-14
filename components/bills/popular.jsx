@@ -15,10 +15,16 @@ export default function Popular({bills}) {
                         {
                             bills.map((data,i)=>{
                                 return(
-                                    <a key={i} href={'/bills/dashboard/'+data.billerId}>
+                                    // <a key={i} href={'/bills/dashboard/'+data.billerId}>
+                                    //     <Cat >
+                                    //         <Catimg src={data.billerLogoUrl} />
+                                    //         <h3 className="">{data.billerId}</h3>
+                                    //     </Cat>
+                                    // </a>
+                                    <a key={i} href={'/bills/dashboard/'+data.identifier}>
                                         <Cat >
-                                            <Catimg src={data.billerLogoUrl} />
-                                            <h3 className="">{data.billerId}</h3>
+                                            <Catimg src={data.image} />
+                                            <h3 className="">{data.name}</h3>
                                         </Cat>
                                     </a>
                                 )

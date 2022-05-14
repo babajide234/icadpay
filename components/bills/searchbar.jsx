@@ -12,10 +12,10 @@ export default function SearchBar ({props}) {
         
         if(e.currentTarget.value.length >= 3){
             props.filter((cat)=>{
-                if(cat.billerId.toLowerCase().includes(e.currentTarget.value)){                    
+                if(cat.identifier.toLowerCase().includes(e.currentTarget.value)){                    
                     arr.push({
-                        id:cat.categoryId,
-                        name:cat.billerId
+                        id:cat.identifier,
+                        name:cat.name
                     })
                 }
             })
@@ -55,7 +55,7 @@ export default function SearchBar ({props}) {
                     result.map((item)=>{
                         return(
                             <>
-                                <li key={item.id}><Link href={"/bills/dashboard/"+item.name} >{item.name}</Link></li>
+                                <li key={item.id}><Link href={"/bills/dashboard/"+item.id} >{item.name}</Link></li>
                             </>
                         )
                     })
