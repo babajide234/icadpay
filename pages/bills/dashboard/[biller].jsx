@@ -53,6 +53,7 @@ export default function Dashboard({ bills,sidbar }) {
     const [serviceId, setServiceId]=useState({});
     const [billerCode, setbillerCode]=useState('');
     const [transactionId,setTransactionId]=useState('');
+    const [proceed,setProceed]=useState(false);
 
      useEffect(()=>{
         if(status == 'SUCCESS'){
@@ -185,9 +186,15 @@ export default function Dashboard({ bills,sidbar }) {
     const handlephone= (e)=>{
         setphone(e.target.value)
     }
+
     const handleName= (e)=>{
         setname(e.target.value)
     }
+
+    const handleProceed= ()=>{
+        setProceed(!proceed)
+    }
+
     const handleValidation = useCallback( async ()=>{
         const payload ={
             billersCode: billerCode,
@@ -233,17 +240,25 @@ export default function Dashboard({ bills,sidbar }) {
             />
 
             <Modal show={modal} close={handlemodal} amount={amount} TxnRef={ref} name={selectedBiller.billPaymentProductName}/>
-            <Sidebar data={bills} setBiller={handleSelectBiller} biller={selectedBiller}/>
-            <DashMainContent>           
+            <Sidebar data={bills} setBiller={handleSelectBiller} biller={selectedBiller} proceed={handleProceed}/>
+            <DashMainContent detail={proceed}>           
                 <div className="dashheader">
+
                     <div className="imgcontainer">
                         <DListimg
-                            src="/img/dstv.svg"
+                            src={selectedBiller.image}
                         />
                     </div>
                     <div className="namecontainer">
-                        <h3 className="">{biller}</h3>
-                        <p className="">{bills.billPaymentProductName}</p>
+                        
+                        <div className="">
+
+                            <h3 className="">{selectedBiller.name}</h3>
+                            <p className="">{selectedBiller.serviceID}</p>
+                        </div>
+                        <div className="backbtn" onClick={handleProceed}>
+                            <img src="/img/arrow_left.png" alt="" className="" />
+                        </div>
                     </div>
                 </div>
                     { Object.keys(selectedBiller).length !== 0 ? (
@@ -274,19 +289,13 @@ export default function Dashboard({ bills,sidbar }) {
                                                     </>
                                                 )
                                             }
-                                            {
+                                            {/* {
                                                 Object.keys(selectedVariety).length !== 0 && (
                                                     <>   
-                                                        <div className="input_div">
-
-                                                            <label htmlFor="">Biller Code</label>  
-                                                            <div className='input_container '>
-                                                                <input type={'text'} value={billerCode} placeholder='PIN/Number' onChange={(e)=> setbillerCode(e.target.value)}   />
-                                                            </div>
-                                                        </div>
+                                                    
                                                     </>
                                                 )
-                                            }
+                                            } */}
                                             {
                                                 selectedBiller && (
                                                     <>   
@@ -295,6 +304,12 @@ export default function Dashboard({ bills,sidbar }) {
                                                             <label htmlFor="">Amount</label>  
                                                             <div className='input_container'>
                                                                 <input type={'numeric'} value={amount_} placeholder='Amount' onChange={(e)=> setamount(e.target.value)}   />
+                                                            </div>
+                                                        </div>
+                                                        <div className="input_div">
+                                                            <label htmlFor="">Biller Code</label>  
+                                                            <div className='input_container '>
+                                                                <input type={'text'} value={billerCode} placeholder='PIN/Number' onChange={(e)=> setbillerCode(e.target.value)}   />
                                                             </div>
                                                         </div>
                                                     </>
@@ -377,17 +392,25 @@ export default function Dashboard({ bills,sidbar }) {
                                     <input type="tel" value={phone} onChange={handlephone} placeholder="Phone Number +234xxxxxxxxxxx"/>
                                 </div>
 
-                            </div>
-                            <div className="dashcontent_right">
-                                <div className="dashpay">
-                                    <h3 className="">Total price </h3>
-                                    <div className="price">
-                                        <h2><span>NGN</span> {amount_}</h2>
-                                        {/* <h2><span>{selectedBiller.currency}</span> {amount_}</h2> */}
+                        </div>
+                        <div className="dashcontent_right">
+                            {
+                                proceed && (
+                                    <>
+                                    <div className="dashpay">
+                                
+                                        <h3 className="">Total price </h3>
+                                        <div className="price">
+                                            <h2><span>NGN</span> {amount_}</h2>
+                                            {/* <h2><span>{selectedBiller.currency}</span> {amount_}</h2> */}
+                                        </div>
+                                        <button className={ active ? 'paybtn btn':'paybtn_not btn'} onClick={handlePayment}>Pay</button>
                                     </div>
-                                    <button className={ active ? 'paybtn':'paybtn_not'} onClick={handlePayment}>Pay</button>
-                                </div>
-                            </div>
+                                    </>
+                                )
+                            }
+                            
+                        </div>
 
                             
                         </div>

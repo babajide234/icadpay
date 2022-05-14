@@ -309,6 +309,56 @@ export const DashListContainer = styled.div`
     flex-flow: column;
     border-top: 1px solid rgba(116,116,120,.2);
     overflow: scroll;
+    padding-bottom: 200px;
+    @media screen and (max-width: 480px) {
+        padding-bottom: 500px;
+    }
+    .proceed{
+        width: 100%;
+        /* height:100px; */
+        padding:30px;
+        background: #F9F9F9;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+    }
+    .btn{
+    }
+    .paybtn{
+        height: 50px;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #DC0D11;
+        border: none;
+        outline: none;
+        color: #FFFFFF;
+        margin-top: 20px;
+        
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .paybtn_not{
+            background-color: #ccc;
+            color:#1D2646;
+            height: 50px;
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            outline: none;
+            color: #FFFFFF;
+            margin-top: 20px;
+            pointer-events: none;
+            &:hover{
+                cursor: pointer;
+            }
+        }
 `
 export const DashListsContent = styled.ul`
 width: 310px;
@@ -316,6 +366,7 @@ margin: 0 auto;
 display: flex;
 padding: 20px 0;
 flex-flow: column;
+
 .active{
         cursor: pointer;
         background: #ECF1FF;
@@ -380,6 +431,11 @@ export const DListimg = styled.img`
     box-sizing: border-box;
     border-radius: 50%;
     margin-right: 20px;
+    @media screen and (max-width: 480px) {
+        width: 50px;
+        height: 50px;
+        
+    }
 `
 export const DashMainContent = styled.div`
     width: 70%;
@@ -394,6 +450,7 @@ export const DashMainContent = styled.div`
         position: absolute;
         top: 0;
         right: ${props=> props.detail ? '0%':'-100%'};
+        background: #fff;
     }
     .dashheader{
         width: 100%;
@@ -404,6 +461,29 @@ export const DashMainContent = styled.div`
         align-items: center;
         direction: ltr;
         @media screen and (max-width: 480px) {
+            direction: rtl;
+            justify-content: space-between;
+        }
+        .namecontainer{
+            display: flex;
+            align-items: center;
+        }
+        .backbtn{
+            height: 33px;
+            width: 33px;
+            border-radius: 40px;
+            background: rgba(57, 77, 147, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            &:hover{
+                cursor: pointer;
+            }
+            img{
+                width:20px;
+                height: 10px;
+            }
         }
         h3{
             //styleName: Header 3;
@@ -415,6 +495,11 @@ export const DashMainContent = styled.div`
             text-align: left;
             color: #1D2646;
             margin: 0;
+            @media screen and (max-width: 480px) {
+                font-size: 14px;
+                color: #394D93;
+                line-height: 20px;
+            }
         }
         p{
             //styleName: Body 1 ;
@@ -426,6 +511,9 @@ export const DashMainContent = styled.div`
             text-align: left;
             color: #1D2646;
             margin: 0;
+            @media screen and (max-width: 480px) {
+                font-size: 13px;
+            }
         }
     }
     .dashcontent{
@@ -564,6 +652,8 @@ export const DashMainContent = styled.div`
             @media screen and (max-width: 480px) {
                 width: 100%;
                 order: 2;
+                padding-bottom:300px;
+                position: relative;
             }
             .dashpay{
                 height: 172px;
@@ -581,8 +671,6 @@ export const DashMainContent = styled.div`
                     border: none;
                     border-radius: 0;
                     padding: 31px;
-
-
                 }
                 h3{
                     //styleName: body 2 ;
