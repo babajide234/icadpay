@@ -125,7 +125,7 @@ export default function Dashboard({ bills,sidbar }) {
         const namearr = name.split(" ");
 
         const payload = {
-            key: 'test_ZTM1N2RmNWQ2MzE5Mjc4MTkzY2UxODkxYmE3ZDRmYzhlMWFjYmI2NjhhMzNiNGVjZmIzZWU3MDkwNjk1MTkzOA', // this is a demo key.  
+            key: 'live_ZmMxMzJiOGQ4MjZkODc4Y2ZiYjk5NTYxMTE5ODNkYjE5NzRiNjQzNTI4MmFiNGU4YTRkMzE0NzIwNDVhYzhmMQ', // this is a demo key.  
             email: email, // customer email 
             amount: amount_, // amount to be processed
             currency: "NGN", // currency
@@ -239,7 +239,7 @@ export default function Dashboard({ bills,sidbar }) {
     return (
         <DashMain>
             <Script 
-                src="https://demo.icadpay.com/inline-pay.js" 
+                src="https://pay-service.icadpay.com/inline-pay.js" 
                 strategy="lazyOnload" 
                 onLoad={() =>
                     console.log(`script loaded correctly, window.FB has been populated`)
