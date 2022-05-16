@@ -174,8 +174,8 @@ export const Cat = styled.div`
 
 `
 export const Catimg = styled.img`
-height: 70px;
-width: 70px;
+height: 50px;
+width: 50px;
 border-radius: 50%;
 @media screen and (max-width: 480px) {
     height: 40px;
@@ -321,6 +321,10 @@ export const DashListContainer = styled.div`
         position: fixed;
         bottom: 0px;
         left: 0px;
+        display: none;
+        @media screen and (max-width: 480px) {
+            display: block;
+        }
     }
     .btn{
     }
@@ -473,10 +477,13 @@ export const DashMainContent = styled.div`
             width: 33px;
             border-radius: 40px;
             background: rgba(57, 77, 147, .1);
-            display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 20px;
+            display: none;
+            @media screen and (max-width: 480px) {
+               display: flex;
+            }
             &:hover{
                 cursor: pointer;
             }

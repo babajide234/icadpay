@@ -5,6 +5,7 @@ import Modal from "../../../components/modal/modal";
 import { useRouter } from 'next/router'
 import axios from "axios";
 import Script from 'next/script'
+import { isMobile,isBrowser } from "react-device-detect";
 
 
 
@@ -106,7 +107,13 @@ export default function Dashboard({ bills,sidbar }) {
              handleValidation();
         }
      },[billerCode])
-
+     useEffect(()=>{
+        if(isBrowser){
+            setProceed(true)
+        }else{
+            setProceed(false)
+        }
+     },[])
     const handleSelectBiller = (bill)=>{
         setselectedBiller(bill)
         console.log('slected bill',bill);
@@ -309,7 +316,7 @@ export default function Dashboard({ bills,sidbar }) {
                                                         <div className="input_div">
                                                             <label htmlFor="">Biller Code</label>  
                                                             <div className='input_container '>
-                                                                <input type={'text'} value={billerCode} placeholder='PIN/Number' onChange={(e)=> setbillerCode(e.target.value)}   />
+                                                                <input type={'text'} value={billerCode} placeholder='Smart card no, meter/account no, phone/email (for data), etc.' onChange={(e)=> setbillerCode(e.target.value)}   />
                                                             </div>
                                                         </div>
                                                     </>
