@@ -17,7 +17,7 @@ export const getStaticProps = async (context) => {
     const billsdata = await billers.data;
     
     // console.log('data',billsdata.products[0]);
-    console.log('data',billsdata);
+    // console.log('data',billsdata);
 
     return {
         props:{
@@ -27,7 +27,7 @@ export const getStaticProps = async (context) => {
     }
 }
 export async function getStaticPaths(context) {
-    console.log('njnj',context);
+    // console.log('njnj',context);
     
     return {
         paths: [], //indicates that no page needs be created at build time
@@ -58,7 +58,7 @@ export default function Dashboard({ bills,sidbar }) {
 
      useEffect(()=>{
         if(status == 'SUCCESS'){
-            console.log('status: ',status);
+            // console.log('status: ',status);
             setmodal(true)
         }
     },[status])   
@@ -66,7 +66,7 @@ export default function Dashboard({ bills,sidbar }) {
     useEffect(()=>{
         if(email.length < 3 || phone.length <= 10){
             setactive(false)
-            console.log('active: ',active);
+            // console.log('active: ',active);
         }else{
             setactive(true)
         }
@@ -89,12 +89,12 @@ export default function Dashboard({ bills,sidbar }) {
             
             
             selectedVariety.map(item=>{
-                console.log(item.fixedPrice)
+                // console.log(item.fixedPrice)
                 if(item.fixedPrice == "Yes"){
                     setamount(item.variation_amount);
                     setType(item.variation_code);
                     setfixed(true)
-                    console.log(item.variation_amount)
+                    // console.log(item.variation_amount)
                 }else{
                     setfixed(false)
                 }
@@ -116,12 +116,12 @@ export default function Dashboard({ bills,sidbar }) {
      },[])
     const handleSelectBiller = (bill)=>{
         setselectedBiller(bill)
-        console.log('slected bill',bill);
+        // console.log('slected bill',bill);
     }
     
     // console.log('biller',bills);
     const handlepaymentFull = async ()=>{
-        console.log('payment btn clicked');
+        // console.log('payment btn clicked');
         const namearr = name.split(" ");
 
         const payload = {
@@ -138,16 +138,16 @@ export default function Dashboard({ bills,sidbar }) {
             isBill:true,
             callback_url: window.location.href, // specified redirect URL (potional)
             callback: (response) => {
-                console.log(response);
+                // console.log(response);
             },
             onSuccess: (response) => {
-              console.log(response);
+            //   console.log(response);
             },
             onError: (response) => {
-              console.log(response);
+            //   console.log(response);
             },
             onClose: () => {
-              console.log('window closed');
+            //   console.log('window closed');
               // alert('window closed');
             }
         }
@@ -163,10 +163,10 @@ export default function Dashboard({ bills,sidbar }) {
     
         // console.log('data',billsdata.products[0]);
         if(varietyData == ''){
-            console.log('no data returned');
+            // console.log('no data returned');
             setVariety(false);
         }else{
-            console.log('data',varietyData.varations);
+            // console.log('data',varietyData.varations);
             setVariety(true);
             setVarietyData(varietyData)
         }
@@ -180,7 +180,7 @@ export default function Dashboard({ bills,sidbar }) {
                 arr.push(e);
             }
         })
-        console.log('array values: ',arr);
+        // console.log('array values: ',arr);
         setSelectedVariety(arr);
         handleValidation();
     }
@@ -210,8 +210,8 @@ export default function Dashboard({ bills,sidbar }) {
         }
         const validation =await axios.post('https://app-service.icadpay.com/api/AltBiller/customerValidation',payload)
         const validationData = await validation.data;
-        console.log(payload);
-        console.log(validationData);
+        // console.log(payload);
+        // console.log(validationData);
         if(validationData.WrongBillersCode == false ){
             setname('');
         }else{
@@ -221,18 +221,18 @@ export default function Dashboard({ bills,sidbar }) {
 
     const handlePayment = async ()=>{
         const payload ={
-            billPaymentProductId: "string",
+            billPaymentProductId: serviceId,
             amount: amount_,
             name:name,
             email: email,
             phoneNumber: phone,
-            customerId: billerCode,
-            billersCode: serviceId,
+            customerId: '',
+            billersCode:billerCode,
             variation_code: type
           }
         const res = await axios.post('https://app-service.icadpay.com/api/AltBiller/initiatePayment',payload)
         const resData = await res.data;
-        console.log('trans id: ', resData)
+        // console.log('trans id: ', resData)
         setTransactionId(resData.transId);
         handlepaymentFull();
     }
