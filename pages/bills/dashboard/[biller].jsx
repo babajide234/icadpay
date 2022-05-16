@@ -50,7 +50,7 @@ export default function Dashboard({ bills,sidbar }) {
     const [variety, setVariety]=useState(false);
     const [varietyData, setVarietyData]=useState();
     const [selectedVariety, setSelectedVariety]=useState({});
-    const [type, setType]=useState({});
+    const [type, setType]=useState('');
     const [serviceId, setServiceId]=useState({});
     const [billerCode, setbillerCode]=useState('');
     const [transactionId,setTransactionId]=useState('');
@@ -272,7 +272,7 @@ export default function Dashboard({ bills,sidbar }) {
                         <>
                         <div className="dashcontent">
                         <div className="dashcontent_left">
-                                <h3 className="">Fill in the details to pay this bill</h3>
+                                <h3 className="">Enter Your Detials</h3>
                                 {
                                     Object.keys(selectedBiller).length !== 0  && (
                                         <>
@@ -314,7 +314,7 @@ export default function Dashboard({ bills,sidbar }) {
                                                             </div>
                                                         </div>
                                                         <div className="input_div">
-                                                            <label htmlFor="">Biller Code</label>  
+                                                            <label htmlFor="">Recipient</label>  
                                                             <div className='input_container '>
                                                                 <input type={'text'} value={billerCode} placeholder='Smart card no, meter/account no, phone/email (for data), etc.' onChange={(e)=> setbillerCode(e.target.value)}   />
                                                             </div>
@@ -386,7 +386,7 @@ export default function Dashboard({ bills,sidbar }) {
 
                                 <div className="subtext">
                                     <h3 className="">Enter your contact information </h3>
-                                    <p>Your Receipt would be sent to you via your contact details </p>
+                                    <p>Your receipt would be sent to you via your contact details </p>
                                 </div>
 
                                 <div className="input_container">

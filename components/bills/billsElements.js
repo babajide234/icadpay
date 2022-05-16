@@ -636,7 +636,7 @@ export const DashMainContent = styled.div`
                     font-family: Poppins;
                     font-size: 16px;
                     font-weight: 600;
-                    line-height: 24px;
+                    line-height: 0px;
                     letter-spacing: 0em;
                     text-align: left;
                     color: #2B2C3E;
@@ -646,7 +646,7 @@ export const DashMainContent = styled.div`
                     font-family: Poppins;
                     font-size: 12px;
                     font-weight: 400;
-                    line-height: 18px;
+                    line-height: 10px;
                     letter-spacing: 0em;
                     text-align: left;
                     color: #1D2646;
@@ -744,6 +744,9 @@ export const DashMainContent = styled.div`
                     
                     &:hover{
                         cursor: pointer;
+                        cursor: pointer;
+                        background: #B30020;
+                        box-shadow: 0px 10px 20px rgba(220, 13, 17, 0.25);
                     }
                 }
                 .paybtn_not{
